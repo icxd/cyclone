@@ -1,3 +1,7 @@
+import "C" {
+    fn malloc(size uint) *void; // Should probably be able to return an error.
+}
+
 struct String {
     data *rune
     len uint
