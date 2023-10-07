@@ -3,8 +3,10 @@ struct String {
     len uint
 }
 
+// alias cstring = *c_char;
+
 fn String.c_str() !*c_char {
-    let cstr := malloc(this.len + 1);
+    let cstr *c_char = malloc(this.len + 1); // This is temporary, we will have custom allocators in the future.
     for i in 0..this.len {
         let c rune = this.data[i];
         throw "non-ascii character in string" if c > 127;
@@ -25,10 +27,10 @@ fn String.at(index uint) !rune {
 }
 
 fn main(argc uint, argv **c_char) !void {
-    let str := "hi";
+    let str := String{"hi", 2};
     for i in 0..str.length() {
         let c := try str.at(i);
-        print("{}", c);
+        print("{}", .{c});
     }
-    println();
+    println(); // -> print("\n");
 }

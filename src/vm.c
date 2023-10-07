@@ -73,6 +73,8 @@ static void vm_dump_value(Value value) {
 
 void vm_execute(VirtualMachine *vm) {
     for (;;) {
+        if (vm->ip >= vec_len(&vm->instructions))
+            return;
         if (vm->state != VM_STATE_RUNNING)
             return;
         Instruction *instr = *vec_get(&vm->instructions, vm->ip);
