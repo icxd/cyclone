@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "*.h": "c",
+        "xutility": "c",
+        "vector": "c",
+        "*.def": "c"
+    }
+}

@@ -1,0 +1,12 @@
+AST_NODE(INTEGER, Integer, {
+    int value;
+})
+AST_NODE(BINARY_EXPR, BinaryExpr, {
+    AstNode *left;
+    AstNode *right;
+    TokenKind op;
+})
+AST_NODE(UNARY_EXPR, UnaryExpr, {
+    AstNode *expr;
+    TokenKind op;
+})
